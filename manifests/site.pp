@@ -48,5 +48,7 @@ node default {
    host => "10.170.76.246"
 
  }
-
+ Class['riak'] ~> Class['riak::cs'] ~> Class['riak::stanchion'] ~> Class['riak::join']
+ Service['riak'] -> Service['riak-cs']
+ Service['riak'] -> Service['stanchion']
 }
