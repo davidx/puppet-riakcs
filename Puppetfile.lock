@@ -1,0 +1,16 @@
+FORGE
+  remote: http://forge.puppetlabs.com
+  specs:
+    puppetlabs/stdlib (4.1.0)
+
+GIT
+  remote: https://github.com/duritong/puppet-sysctl.git
+  ref: master
+  sha: 4a463384e844f51b270428643a5b8beb3628e854
+  specs:
+    sysctl (0.0.1)
+
+DEPENDENCIES
+  puppetlabs/stdlib (>= 0)
+  sysctl (>= 0)
+

@@ -1,0 +1,13 @@
+---
+:backends:
+  - yaml
+  - json
+  - puppetdb
+:yaml:
+  :datadir: /etc/puppet/hieradata
+:json:
+  :datadir: /etc/puppet/hieradata
+:hierarchy:
+  - "%{::clientcert}"
+  - "%{::custom_location}"
+  - common
