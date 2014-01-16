@@ -1,0 +1,3 @@
+[submodule "vendor/puppet-puppetdbquery"]
+	path = vendor/puppet-puppetdbquery
+	url = git@github.com:dalen/puppet-puppetdbquery.git
