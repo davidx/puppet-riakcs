@@ -39,11 +39,11 @@ node default {
 			]
                 }
       }
-  }
+  }->
 
   class { 'riak::stanchion':
       ulimit_etc_default => true,
-  }
+  }->
   class { 'riak::join':
   # host => Cluster which do i belong, sort and join to first in list
   # host => exported resource
@@ -51,6 +51,7 @@ node default {
    host => "10.170.76.246"
 
  }
-Class['riak::cs']-> Class['riak'] -> Class['riak::stanchion'] -> Class['riak::join'] 
+
+#Class['riak::cs']-> Class['riak'] -> Class['riak::stanchion'] -> Class['riak::join'] 
 
 }
