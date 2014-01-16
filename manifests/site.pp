@@ -11,7 +11,7 @@ node default {
   class { 'riak':
     version => "1.4.7-1",
     ulimit_etc_default => true,
-     cfg => { riak_core => 
+    cfg => { riak_core => 
 	 	{ 
 			default_bucket_props => { 
 				allow_mult => true
