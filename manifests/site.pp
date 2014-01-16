@@ -1,4 +1,15 @@
 node default {
+   class { 'riak::cs':
+      disableboot => undef,
+      service_autorestart => false,
+      ulimit_etc_default => true,
+      cfg => {
+       riak_cs => {
+         admin_key => "putmeinhierapuppetdb",
+         admin_secret => "98ou23jqliudqodh"
+       }
+      },
+    }
    class { 'riak':
      version => "1.4.7-1",
      ulimit_etc_default => true,
@@ -28,16 +39,8 @@ node default {
 			]
                 }
       }
-   }
-   class { 'riak::cs':
-      ulimit_etc_default => true,
-      cfg => {
-       riak_cs => {
-         admin_key => "putmeinhierapuppetdb",
-         admin_secret => "98ou23jqliudqodh"
-       }
-      },
   }
+
   class { 'riak::stanchion':
       ulimit_etc_default => true,
   }
@@ -48,7 +51,6 @@ node default {
    host => "10.170.76.246"
 
  }
- Class['riak'] ~> Class['riak::cs'] ~> Class['riak::stanchion'] ~> Class['riak::join']
- Service['riak'] -> Service['riak-cs']
- Service['riak'] -> Service['stanchion']
+Class['riak::cs']-> Class['riak'] -> Class['riak::stanchion'] -> Class['riak::join'] 
+
 }
