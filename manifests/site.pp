@@ -45,10 +45,13 @@ node default {
       ulimit_etc_default => true,
   }->
   class { 'riak::join':
-  # host => Cluster which do i belong, sort and join to first in list
-  # host => exported resource
+    # $host = query_nodes('cluster_id=${cluster_id}').first
+    
+    # host => NodeInfo[$::fqdn]['cluster']
+    
+    # host => hiera('join_host')
 
-   host => "10.170.76.246"
+    host => "10.170.76.246"
 
  }
 
